@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --main-desktop-font-size: 30px;
+  --main-pad-font-size: calc(var(--main-desktop-font-size) * 4.8 / 6);
+  --main-background-color: #333;
+  --main-text-color: #fff;
+  --main-desktop-border-color: #111;
+  --header-toggle-size: 30px;
+  --header-toggle-pad-size: calc(var(--header-toggle-size) * 5 / 6);
+  --screen-desktop-top-padding-top-bottom: 50px;
+  --screen-desktop-top-padding-left-right: 100px;
+  --screen-pad-top-padding-top-bottom: 10px;
+  --screen-pad-top-padding-left-right: 30px;
+  --footer-icon-width: 30px;
+  --footer-pad-icon-width: calc(var(--footer-icon-width) * 5 / 6);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  /* 防止进行拖拽 */
+  -webkit-user-drag: none;
+}
+
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--main-desktop-font-size);
+  background: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+.main-structure .content a {
+  color: var(--main-text-color);
+}
+
+a {
+  color: var(--main-text-color);
+}
+
+.main-structure,
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
+  width: 100%;
+  border: 5px dashed var(--main-desktop-border-color);
+}
+
+.main-structure {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.main-structure header,
+.main-structure footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
+  padding: var(--screen-desktop-top-padding-top-bottom) var(--screen-desktop-top-padding-left-right);
+  transition: 0.5s;
+}
+
+.menu-logo {
+  background: url("./src/icons/menu.svg");
+  width: var(--header-toggle-size);
+  height: var(--header-toggle-size);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--header-toggle-size);
+  filter: invert(1);
+}
+
+.main-structure footer {
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.main-structure footer a img {
+  filter: invert(1);
+  width: var(--footer-icon-width)
+}
+
+@media screen and (max-width: 1200px) {
+  .main-structure {
+    font-size: var(--main-pad-font-size);
+  }
+
+  .main-structure header,
+  .main-structure .content,
+  .main-structure footer {
+    padding: var(--screen-pad-top-padding-top-bottom) var(--screen-pad-top-padding-left-right);
+    transition: 0.5s;
+  }
+
+  .main-structure header .menu-logo {
+    width: var(--header-toggle-pad-size);
+    height: var(--header-toggle-pad-size);
+    background-size: var(--header-toggle-pad-size);
+  }
+
+  .main-structure footer a img {
+    width: var(--footer-pad-icon-width)
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+  .main-structure {
+    font-size: var(--main-phone-font-size);
+  }
+} */
