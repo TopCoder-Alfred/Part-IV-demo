@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --main-desktop-font-size: 30px;
+  --main-desktop-font-size: 24px;
   --main-pad-font-size: calc(var(--main-desktop-font-size) * 4.8 / 6);
   --main-background-color: #333;
   --main-text-color: #fff;
+  --main-color: #03a8f4;
   --main-desktop-border-color: #111;
   --header-toggle-size: 30px;
   --header-toggle-pad-size: calc(var(--header-toggle-size) * 5 / 6);
@@ -14,6 +15,12 @@
   --screen-pad-top-padding-left-right: 30px;
   --footer-icon-width: 30px;
   --footer-pad-icon-width: calc(var(--footer-icon-width) * 5 / 6);
+  --text-description-h1-desktop-size: 3rem;
+  --text-description-h2-desktop-size: 2.5rem;
+  --text-description-p-desktop-and-pad-size: 1rem;
+  --text-description-h1-pad-size: 2.5rem;
+  /* --text-description-p-pad-size: 1rem; */
+  --text-description-h2-pad-size: 2rem;
 }
 
 *,
@@ -30,6 +37,7 @@
 
 html,
 body {
+  all: unset;
   width: 100vw;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
@@ -51,7 +59,7 @@ a {
 .main-structure .content,
 .main-structure footer {
   width: 100%;
-  border: 5px dashed var(--main-desktop-border-color);
+  /* border: 5px dashed var(--main-desktop-border-color); */
 }
 
 .main-structure {
@@ -95,6 +103,67 @@ a {
   width: var(--footer-icon-width)
 }
 
+.main-structure .content video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  inset: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content .text-description h1 {
+  font-size: var(--text-description-h1-desktop-size);
+  line-height: 1em;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5), -1px -1px 5px rgba(255, 255, 255, 0.5);
+}
+
+.content .text-description h2 {
+  font-size: var(--text-description-h2-desktop-size);
+  line-height: 1em;
+}
+
+.content .text-description p {
+  font-size: var(--text-description-p-desktop-and-pad-size);
+  line-height: 1.5rem;
+  max-width: 700px;
+  min-width: 400px;
+  margin: 3em 0;
+}
+
+.content .text-description a {
+  font-size: 20px;
+  border: 2px solid var(--main-text-color);
+  line-height: 1em;
+  padding: 10px 30px;
+  border-radius: 30px;
+  /* cursor: pointer; */
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3), -8px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+}
+
+.content .text-description a:hover {
+  background: var(--main-color);
+  letter-spacing: 5px;
+  box-shadow: none;
+}
+
+.content .text-description a:active {
+  background: #111;
+  letter-spacing: 5px;
+  box-shadow: none;
+}
+
+@media screen and (max-height: 1000px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .main-structure {
     font-size: var(--main-pad-font-size);
@@ -115,6 +184,25 @@ a {
 
   .main-structure footer a img {
     width: var(--footer-pad-icon-width)
+  }
+
+  .content .text-description h1 {
+    font-size: var(--text-description-h1-pad-size);
+    line-height: 1em;
+  }
+  
+  .content .text-description h2 {
+    font-size: var(--text-description-h2-pad-size);
+    line-height: 1em;
+  }
+  
+  .content .text-description p {
+    /* font-size: var(--text-description-p-desktop-size); */
+    line-height: 1.5rem;
+    max-width: 600px;
+    min-width: 400px;
+    /* text-align: justify; */
+    margin: 3em 0;
   }
 }
 
